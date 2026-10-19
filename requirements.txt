@@ -1,0 +1,22 @@
+# Core deterministic + UI dependencies (CPU-only; no torch required by default).
+numpy>=2,<3
+opencv-python-headless>=5
+scipy>=1.11
+scikit-image>=0.22
+pandas>=2.1
+openpyxl>=3.1
+pydantic>=2.5
+pydantic-settings>=2.0
+streamlit>=1.30
+
+# Development & testing
+pytest>=8
+pytest-cov>=4
+
+# Optional: richer scene-cut detection (PySceneDetect)
+pyscenedetect>=0.6
+
+# Optional: deep learning backends (NOT installed by default)
+# torch>=2.0
+# segment-anything>=1.1  # for SAM2 segmentation (requires torch)
+# ultralytics>=8.2      # YOLOv8 (requires torch)

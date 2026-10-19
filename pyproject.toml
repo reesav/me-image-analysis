@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artwork-analyzer"
+version = "1.0.0"
+description = "Research-grade artwork image and video analysis application."
+readme = "README.md"
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.10"
+authors = [{ name = "Art Research Tooling" }]
+keywords = ["computer-vision", "art", "research", "streamlit"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "numpy>=2,<3",
+    "opencv-python-headless>=5",
+    "scipy>=1.11",
+    "scikit-image>=0.22",
+    "pandas>=2.1",
+    "openpyxl>=3.1",
+    "pydantic>=2.5",
+    "pydantic-settings>=2.0",
+    "streamlit>=1.30",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=4", "pandas-stubs"]
+video = ["pyscenedetect>=0.6"]
+ml = ["torch>=2.0", "segment-anything>=1.1"]
+
+[project.scripts]
+artwork-analyzer = "artwork_analyzer.app:main"
+
+[tool.setuptools.packages.find]
+include = ["artwork_analyzer*"]
+
+[tool.setuptools.package-data]
+artwork_analyzer = ["models/data/*.onnx", "models/data/*.xml"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["artwork_analyzer/tests"]
+addopts = "-ra -q"
