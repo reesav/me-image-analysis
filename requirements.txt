@@ -1,5 +1,6 @@
 # Core deterministic + UI dependencies (CPU-only; no torch required by default).
 numpy>=2,<3
+onnxruntime>=1.19
 opencv-python-headless>=5
 scipy>=1.11
 scikit-image>=0.22
